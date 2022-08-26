@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.User;
 import tn.esprit.spring.service.IUserservice;
+import tn.esprit.spring.service.MyUserDetailsService;
 
 @CrossOrigin(origins = "http://localhost:4200/",exposedHeaders="Access-Control-Allow-Origin" )
 @RestController
@@ -25,6 +26,8 @@ import tn.esprit.spring.service.IUserservice;
 public class UserController {
 	@Autowired
 	IUserservice userServ;
+	@Autowired
+	MyUserDetailsService userdetailservice;
 	@PostMapping("/inscription")
 	@ResponseBody
 	public void addUser(@RequestBody User u) {
@@ -41,20 +44,25 @@ public class UserController {
 	}
 	@DeleteMapping("/delete-user/{id-user}")
 	@ResponseBody
-	public void deletetrip(@PathVariable("id-user") Long iduser) {
+	public void deleteuser(@PathVariable("id-user") Long iduser) {
 		userServ.deleteUser(iduser);
 
 	}
 	@GetMapping("/get-user/{id-user}")
 	@ResponseBody
-	public User gettripbyid(@PathVariable("id-user") Long iduser) {
+	public User getuserbyid(@PathVariable("id-user") Long iduser) {
 		return userServ.affichDetailUser(iduser);
 
 	}
 	@GetMapping("/get-users")
 	@ResponseBody
-	public List<User> gettrips() {
+	public List<User> getusers() {
 		return userServ.affichUser();
+
+	}@GetMapping("/get-userbyusername/{username}")
+	@ResponseBody
+	public User getbyusername(@PathVariable("username") String username) {
+		return userdetailservice.findbyusername(username);
 
 	}
 

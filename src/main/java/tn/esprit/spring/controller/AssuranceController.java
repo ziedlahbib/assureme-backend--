@@ -39,7 +39,7 @@ public class AssuranceController {
 	}
 	@DeleteMapping("/delete-assurance/{id-assu}")
 	@ResponseBody
-	public void deletetrip(@PathVariable("id-assu") Long idassu) {
+	public void deleteassurance(@PathVariable("id-assu") Long idassu) {
 		assuservice.supprimerAssurance(idassu);
 
 	}
@@ -52,7 +52,7 @@ public class AssuranceController {
 	
 	@GetMapping("/get-assurance")
 	@ResponseBody
-	public List<Assurance> gettrips() {
+	public List<Assurance> getassurances() {
 		return assuservice.afficher();
 
 	}

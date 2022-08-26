@@ -34,4 +34,8 @@ roles.add(new SimpleGrantedAuthority(role.getRole().toString())); }
 List<GrantedAuthority> grantedAuthorities = new ArrayList<>(roles);
 return grantedAuthorities;
 }
+public User findbyusername(String username) {
+	return userService.findUserByUserName(username);
+}
+
 }
