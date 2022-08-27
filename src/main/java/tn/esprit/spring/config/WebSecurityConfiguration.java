@@ -22,7 +22,7 @@ BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);}
 @Override
 protected void configure(HttpSecurity http) throws Exception {
-	http.cors().and().httpBasic().and().csrf().disable();
+
 http.authorizeRequests() .antMatchers("/registration").permitAll()
 //.antMatchers("/Assurance/get-assurance").access("hasRole('SUPERADMIN')")
 //.antMatchers("/get**}").access("hasRole('Client')")
