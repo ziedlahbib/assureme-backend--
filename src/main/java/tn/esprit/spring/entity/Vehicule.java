@@ -60,9 +60,11 @@ public class Vehicule implements Serializable {
 	@NonNull
 	@Enumerated(EnumType.STRING)
 	private Puissance puissance;
+	private String etat_assu;
 	@ManyToOne
 	@JsonBackReference
 	private User user;
 	@OneToOne
+	@JsonManagedReference
 	private Assurance assu;
 }

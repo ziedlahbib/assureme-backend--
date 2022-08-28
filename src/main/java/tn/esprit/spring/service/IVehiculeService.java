@@ -9,5 +9,7 @@ public interface IVehiculeService {
 	public Vehicule affichDetailVehicule(Long idVeh);
 	public List<Vehicule> affichervehcules();
 	public List<Vehicule> affichvehiculeByIDuser(Long idUser);
+	public Vehicule affectervehauassu(Long idassu,Long idveh);
+	public Vehicule desaffectervehauassu(Long idveh);
 
 }

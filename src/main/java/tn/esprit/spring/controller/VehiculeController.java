@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -39,6 +40,18 @@ public class VehiculeController {
 	@ResponseBody
 	public List<Vehicule> getvehiculebyiduser(@PathVariable("id-user") Long iduser) {
 		return vehiculeserv.affichvehiculeByIDuser(iduser);
+
+	}
+	@PutMapping("/affecter-vehicule-assurance/{id-assu}/{id-veh}")
+	@ResponseBody
+	public Vehicule affectervehiculeauassurance(@PathVariable("id-assu") Long idassu,@PathVariable("id-veh") Long idveh) {
+		return vehiculeserv.affectervehauassu(idassu, idveh);
+
+	}
+	@PutMapping("/desaaffecter-vehicule-assurance/{id-veh}")
+	@ResponseBody
+	public Vehicule affectervehiculeauassurance(@PathVariable("id-veh") Long idveh) {
+		return vehiculeserv.desaffectervehauassu( idveh);
 
 	}
 

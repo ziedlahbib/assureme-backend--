@@ -5,9 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.spring.entity.Assurance;
 import tn.esprit.spring.entity.User;
 import tn.esprit.spring.entity.Vehicule;
-
+import tn.esprit.spring.repository.AssuranceRepsitory;
 import tn.esprit.spring.repository.UserRepository;
 import tn.esprit.spring.repository.VehiculeRepository;
 
@@ -18,11 +19,14 @@ public class VehiculeServiceImpl implements IVehiculeService {
 	VehiculeRepository vehRepo;
 	@Autowired
 	UserRepository userRepo;
+	@Autowired
+	AssuranceRepsitory assuRepo;
 	@Override
 	public void ajoutVehicule(Vehicule veh,Long idUser) {
 		// TODO Auto-generated method stub
 		User u =userRepo.getById(idUser);
 		veh.setUser(u);
+		veh.setEtat_assu("null");
 		vehRepo.save(veh);
 	}
 
@@ -64,6 +68,23 @@ public class VehiculeServiceImpl implements IVehiculeService {
 		// TODO Auto-generated method stub
 		User u = userRepo.findById(idUser).orElse(null);
 		return u.getVeh();
+	}
+
+	@Override
+	public Vehicule affectervehauassu(Long idassu, Long idveh) {
+		Vehicule v=vehRepo.findById(idveh).orElse(null);
+		Assurance a =assuRepo.findById(idassu).orElse(null);
+		v.setAssu(a);
+		v.setEtat_assu("inscrit");
+		return vehRepo.save(v);
+	}
+
+	@Override
+	public Vehicule desaffectervehauassu( Long idveh) {
+		Vehicule v=vehRepo.findById(idveh).orElse(null);
+		v.setAssu(null);
+		v.setEtat_assu("null");
+		return vehRepo.save(v);
 	}
 
 }

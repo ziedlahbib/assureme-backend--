@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,6 @@ public class Assurance implements Serializable {
 	@NonNull
 	private String prix;
 	@OneToOne(cascade = CascadeType.ALL, mappedBy="assu")
-
+	@JsonBackReference
 	private Vehicule veh;
 }
