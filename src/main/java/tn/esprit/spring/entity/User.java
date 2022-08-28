@@ -78,14 +78,14 @@ public class User implements Serializable {
 	@NonNull
 //	@Size(min = 8, max = 60)
 	private String password;
-	@NonNull
+
 	private String profession;
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 
-	@NonNull
+
 	private String date_obtention_permis;
-	@NonNull
+
 	private String sit_matr;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")

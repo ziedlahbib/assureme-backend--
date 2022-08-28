@@ -38,8 +38,8 @@ public class UserController {
 
 	@PutMapping("/update-utilisateur/{id-user}")
 	@ResponseBody
-	public void affecterutilisateur(@RequestBody User u,@PathVariable("id-user") Long iduser) {
-		userServ.updateUser(u, iduser);
+	public User affecterutilisateur(@RequestBody User u,@PathVariable("id-user") Long iduser) {
+		return userServ.updateUser(u, iduser);
 
 	}
 	@DeleteMapping("/delete-user/{id-user}")

@@ -24,7 +24,7 @@ public class AssuranceServiceImpl implements IAssuranceService {
 		Assurance a=assuRepo.findById(idAssu).orElse(null);
 		a.setDescription(assu.getDescription());
 		a.setPrix(assu.getPrix());
-		
+		assuRepo.save(a);
 	}
 
 	@Override

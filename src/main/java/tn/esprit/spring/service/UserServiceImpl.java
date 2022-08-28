@@ -19,7 +19,7 @@ public class UserServiceImpl implements IUserservice {
 	}
 
 	@Override
-	public void updateUser(User user, Long idUser) {
+	public User updateUser(User user, Long idUser) {
 		User u = userRepo.findById(idUser).orElse(null);
 		u.setAddress(user.getAddress());
 		u.setBirthday(user.getBirthday());
@@ -33,7 +33,7 @@ public class UserServiceImpl implements IUserservice {
 		u.setProfession(user.getProfession());
 		u.setSit_matr(user.getSit_matr());
 		u.setTel(user.getTel());
-		userRepo.save(u);
+		return userRepo.save(u);
 		
 	}
 
