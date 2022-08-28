@@ -1,5 +1,5 @@
 package tn.esprit.spring.entity;
 
 public enum Puissance {
-	electrique
+	electrique,cv5
 }
