@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -88,7 +89,7 @@ public class User implements Serializable {
 	private String sit_matr;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
-	@JsonBackReference
+	@JsonManagedReference
 	private List<Vehicule> veh;
 	
 }

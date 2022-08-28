@@ -36,6 +36,6 @@ public class Assurance implements Serializable {
 	@NonNull
 	private String prix;
 	@OneToOne(cascade = CascadeType.ALL, mappedBy="assu")
-	@JsonBackReference
+
 	private Vehicule veh;
 }

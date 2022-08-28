@@ -17,6 +17,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -60,7 +61,7 @@ public class Vehicule implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Puissance puissance;
 	@ManyToOne
-	@JsonManagedReference
+	@JsonBackReference
 	private User user;
 	@OneToOne
 	private Assurance assu;
