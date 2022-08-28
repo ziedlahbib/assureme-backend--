@@ -1,5 +1,6 @@
 package tn.esprit.spring.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +20,7 @@ import javax.persistence.TemporalType;
 
 import org.springframework.beans.factory.annotation.Value;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -35,7 +37,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -51,6 +53,7 @@ public class User {
 	@ManyToMany(cascade = CascadeType.PERSIST, fetch
 	= FetchType.EAGER)
 	private Set<Role> roles;
+	private String role;
 
 	private String city;
 	
@@ -85,6 +88,7 @@ public class User {
 	private String sit_matr;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
+	@JsonBackReference
 	private List<Vehicule> veh;
 	
 }

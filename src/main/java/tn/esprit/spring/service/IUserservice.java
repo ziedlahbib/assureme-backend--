@@ -13,5 +13,6 @@ public interface IUserservice {
 	public void deleteUser(Long idUser);
 	public User affichDetailUser(Long idUser);
 	public List<User> affichUser();
+	public User findbyusername(String username);
 
 }

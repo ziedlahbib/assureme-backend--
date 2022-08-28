@@ -1,5 +1,6 @@
 package tn.esprit.spring.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +17,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,8 +33,9 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Vehicule {
+public class Vehicule implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -56,6 +60,7 @@ public class Vehicule {
 	@Enumerated(EnumType.STRING)
 	private Puissance puissance;
 	@ManyToOne
+	@JsonManagedReference
 	private User user;
 	@OneToOne
 	private Assurance assu;

@@ -1,5 +1,6 @@
 package tn.esprit.spring.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +22,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Assurance {
+public class Assurance implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -32,5 +36,6 @@ public class Assurance {
 	@NonNull
 	private String prix;
 	@OneToOne(cascade = CascadeType.ALL, mappedBy="assu")
+	@JsonBackReference
 	private Vehicule veh;
 }

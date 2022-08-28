@@ -1,5 +1,7 @@
 package tn.esprit.spring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,5 +35,12 @@ public class VehiculeController {
 		return vehiculeserv.affichDetailVehicule(idveh);
 
 	}
+	@GetMapping("/get-vehculeByUser/{id-user}")
+	@ResponseBody
+	public List<Vehicule> getvehiculebyiduser(@PathVariable("id-user") Long iduser) {
+		return vehiculeserv.affichvehiculeByIDuser(iduser);
+
+	}
+
 
 }

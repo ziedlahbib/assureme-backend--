@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.User;
 import tn.esprit.spring.service.IUserservice;
-import tn.esprit.spring.service.MyUserDetailsService;
+
 
 @CrossOrigin(origins = "http://localhost:4200/",exposedHeaders="Access-Control-Allow-Origin" )
 @RestController
@@ -26,8 +26,8 @@ import tn.esprit.spring.service.MyUserDetailsService;
 public class UserController {
 	@Autowired
 	IUserservice userServ;
-	@Autowired
-	MyUserDetailsService userdetailservice;
+//	@Autowired
+//	MyUserDetailsService userdetailservice;
 	@PostMapping("/inscription")
 	@ResponseBody
 	public void addUser(@RequestBody User u) {
@@ -62,7 +62,7 @@ public class UserController {
 	}@GetMapping("/get-userbyusername/{username}")
 	@ResponseBody
 	public User getbyusername(@PathVariable("username") String username) {
-		return userdetailservice.findbyusername(username);
+		return userServ.findbyusername(username);
 
 	}
 

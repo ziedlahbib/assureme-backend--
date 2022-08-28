@@ -8,5 +8,6 @@ public interface IVehiculeService {
 	public void updatevehicule(Vehicule veh,Long idveh);
 	public Vehicule affichDetailVehicule(Long idVeh);
 	public List<Vehicule> affichervehcules();
+	public List<Vehicule> affichvehiculeByIDuser(Long idUser);
 
 }

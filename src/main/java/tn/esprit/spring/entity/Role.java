@@ -30,4 +30,9 @@ GenerationType.AUTO)
 private int id;
 @Enumerated(EnumType.STRING)
 private RoleName role;
+public Role(RoleName role) {
+	super();
+	this.role = role;
+}
+
 }

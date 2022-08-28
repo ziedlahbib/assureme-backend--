@@ -59,4 +59,11 @@ public class VehiculeServiceImpl implements IVehiculeService {
 		return vehRepo.findAll();
 	}
 
+	@Override
+	public List<Vehicule> affichvehiculeByIDuser(Long idUser) {
+		// TODO Auto-generated method stub
+		User u = userRepo.findById(idUser).orElse(null);
+		return u.getVeh();
+	}
+
 }
