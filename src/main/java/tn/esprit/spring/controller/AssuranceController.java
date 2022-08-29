@@ -56,4 +56,10 @@ public class AssuranceController {
 		return assuservice.afficher();
 
 	}
+	@PutMapping("/calcule-prix")
+	@ResponseBody
+	public float getprix(@RequestBody Assurance u) {
+		return assuservice.calculprix(u);
+
+	}
 }

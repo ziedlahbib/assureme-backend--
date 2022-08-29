@@ -34,11 +34,23 @@ public class Assurance implements Serializable {
 	private Long assuId;
 
 
-	@NonNull
-	private String description;
 
 	@NonNull
-	private String prix;
+	private float prix;
+
+	@NonNull
+	private String garantie_conducteur;
+	@NonNull
+	private String bris_de_glace;
+	@NonNull
+	private String vol;
+	@NonNull
+	private String assistance;
+	@NonNull
+	private String protection_juridique;
+	@NonNull
+	private String garentie_incendie;
+
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="assu")
 	@JsonIgnore
 	private List<Vehicule> veh;

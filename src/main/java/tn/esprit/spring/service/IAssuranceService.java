@@ -11,4 +11,5 @@ public interface IAssuranceService {
 	public void supprimerAssurance (Long idAssu);
 	public Assurance affichdetailAssurance(Long idAssu);
 	public List<Assurance> afficher();
+	public float calculprix(Assurance assu);
 }
