@@ -3,6 +3,7 @@ package tn.esprit.spring.service;
 import java.util.List;
 
 import tn.esprit.spring.entity.Assurance;
+import tn.esprit.spring.entity.Mpack;
 
 public interface IAssuranceService {
 
@@ -12,4 +13,6 @@ public interface IAssuranceService {
 	public Assurance affichdetailAssurance(Long idAssu);
 	public List<Assurance> afficher();
 	public float calculprix(Assurance assu);
+	public List<Assurance> meilleurassurance(Mpack mpack);
+	public float minimumprice(Mpack mpack);
 }

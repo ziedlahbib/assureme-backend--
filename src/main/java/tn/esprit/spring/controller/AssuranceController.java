@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.Assurance;
+import tn.esprit.spring.entity.Mpack;
 import tn.esprit.spring.entity.User;
 import tn.esprit.spring.service.IAssuranceService;
 
@@ -60,6 +61,18 @@ public class AssuranceController {
 	@ResponseBody
 	public float getprix(@RequestBody Assurance u) {
 		return assuservice.calculprix(u);
+
+	}
+	@PutMapping("/meilleur-pack-asurance")
+	@ResponseBody
+	public List<Assurance> meilleurpackasurance(@RequestBody Mpack u) {
+		return assuservice.meilleurassurance(u);
+
+	}
+	@PutMapping("/minimumprice")
+	@ResponseBody
+	public float minimumprice(@RequestBody Mpack u) {
+		return assuservice.minimumprice(u);
 
 	}
 }

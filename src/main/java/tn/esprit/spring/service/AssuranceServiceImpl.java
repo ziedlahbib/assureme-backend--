@@ -1,11 +1,13 @@
 package tn.esprit.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entity.Assurance;
+import tn.esprit.spring.entity.Mpack;
 import tn.esprit.spring.repository.AssuranceRepsitory;
 @Service
 public class AssuranceServiceImpl implements IAssuranceService {
@@ -66,6 +68,66 @@ public class AssuranceServiceImpl implements IAssuranceService {
 		if(assu.getVol().equalsIgnoreCase("yes"))
 			prix=prix+200;
 		return prix;
+	}
+
+	@Override
+	public List<Assurance> meilleurassurance(Mpack mpack) {
+		float s=0;
+		List<Assurance> la=new ArrayList<Assurance>();
+		List<Assurance> lasa = assuRepo.findAll();
+		if(mpack.getLieu_sattionnemnt().equalsIgnoreCase("maison"))
+		{
+			s=s+42;
+		}
+		if(mpack.getSalaire()>2000)
+			s=s+42;
+		if(mpack.getAnnepermis()<10)
+			s=s+42;
+		if(mpack.getAge()>30)
+			s=s+42;
+		if(mpack.getAgeauto()>5)
+			s=s+42;
+		if(mpack.getPuissance()>5)
+			s=s+42;
+		if(mpack.getMode_financement().equalsIgnoreCase("montant"))
+			s=s+42;
+		if(mpack.getSit_matrimoniale().equalsIgnoreCase("marié"))
+			s=s+42;
+		if(mpack.getConjointpermis().equalsIgnoreCase("yes"))
+			s=s+42;
+		if(mpack.getAgeconjpermis()<10)
+			s=s+42;
+		la= assuRepo.listassuranceparprixsup(s);
+		System.out.println("ss"+s);
+		return la;
+	}
+
+	@Override
+	public float minimumprice(Mpack mpack) {
+		float s=0;
+		if(mpack.getLieu_sattionnemnt().equalsIgnoreCase("maison"))
+		{
+			s=s+42;
+		}
+		if(mpack.getSalaire()>2000)
+			s=s+42;
+		if(mpack.getAnnepermis()<10)
+			s=s+42;
+		if(mpack.getAge()>30)
+			s=s+42;
+		if(mpack.getAgeauto()>5)
+			s=s+42;
+		if(mpack.getPuissance()>5)
+			s=s+42;
+		if(mpack.getMode_financement().equalsIgnoreCase("montant"))
+			s=s+42;
+		if(mpack.getSit_matrimoniale().equalsIgnoreCase("marié"))
+			s=s+42;
+		if(mpack.getConjointpermis().equalsIgnoreCase("yes"))
+			s=s+42;
+		if(mpack.getAgeconjpermis()<10)
+			s=s+42;
+		return s;
 	}
 
 }
