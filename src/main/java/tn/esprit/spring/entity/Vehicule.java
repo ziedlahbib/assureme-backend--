@@ -69,6 +69,9 @@ public class Vehicule implements Serializable {
 	@ManyToOne
 	@JsonIgnore
 	private Assurance assu;
+	@ManyToOne
+	@JsonIgnore
+	private PackPersonalise pack;
 	@OneToMany(mappedBy="veh")
 	@JsonManagedReference
 	private List<FileDB> files;
