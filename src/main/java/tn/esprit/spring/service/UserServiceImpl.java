@@ -5,13 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import tn.esprit.spring.entity.FileDB;
 import tn.esprit.spring.entity.User;
-
+import tn.esprit.spring.repository.FileDBRepository;
 import tn.esprit.spring.repository.UserRepository;
 @Service
 public class UserServiceImpl implements IUserservice {
 	@Autowired
 	UserRepository userRepo;
+	@Autowired
+	FileDBRepository fileRepo;
 
 	@Override
 	public void inscription(User user) {
@@ -58,6 +61,16 @@ public class UserServiceImpl implements IUserservice {
 	@Override
 	public User findbyusername(String username) {
 		return userRepo.findByUserName(username);
+	}
+
+	@Override
+	public FileDB affcterfileauuser(Long iduser,Long idfile) {
+		// TODO Auto-generated method stub
+		User u = userRepo.findById(iduser).orElse(null);
+		FileDB f = fileRepo.findById(idfile).orElse(null);
+		f.setUser(u);
+		fileRepo.save(f);
+		return fileRepo.save(f);
 	}
 
 }

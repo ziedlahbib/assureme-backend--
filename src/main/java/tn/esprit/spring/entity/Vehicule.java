@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -68,4 +69,7 @@ public class Vehicule implements Serializable {
 	@ManyToOne
 	@JsonIgnore
 	private Assurance assu;
+	@OneToMany(mappedBy="veh")
+	@JsonManagedReference
+	private List<FileDB> files;
 }

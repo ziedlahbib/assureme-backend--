@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entity.Assurance;
+import tn.esprit.spring.entity.FileDB;
 import tn.esprit.spring.entity.User;
 import tn.esprit.spring.entity.Vehicule;
 import tn.esprit.spring.repository.AssuranceRepsitory;
+import tn.esprit.spring.repository.FileDBRepository;
 import tn.esprit.spring.repository.UserRepository;
 import tn.esprit.spring.repository.VehiculeRepository;
 
@@ -21,6 +23,8 @@ public class VehiculeServiceImpl implements IVehiculeService {
 	UserRepository userRepo;
 	@Autowired
 	AssuranceRepsitory assuRepo;
+	@Autowired
+	FileDBRepository fileRepo;
 	@Override
 	public void ajoutVehicule(Vehicule veh,Long idUser) {
 		// TODO Auto-generated method stub
@@ -85,6 +89,16 @@ public class VehiculeServiceImpl implements IVehiculeService {
 		v.setAssu(null);
 		v.setEtat_assu("null");
 		return vehRepo.save(v);
+	}
+
+	@Override
+	public FileDB affcterfilevehicule(Long idveh,Long idfile) {
+		// TODO Auto-generated method stub
+		Vehicule u = vehRepo.findById(idveh).orElse(null);
+		FileDB f = fileRepo.findById(idfile).orElse(null);
+		f.setVeh(u);
+		fileRepo.save(f);
+		return fileRepo.save(f);
 	}
 
 }

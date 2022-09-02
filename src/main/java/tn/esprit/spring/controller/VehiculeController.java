@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.esprit.spring.entity.Assurance;
+import tn.esprit.spring.entity.FileDB;
 import tn.esprit.spring.entity.Vehicule;
 import tn.esprit.spring.service.IVehiculeService;
 
@@ -55,5 +56,11 @@ public class VehiculeController {
 
 	}
 
+	@PutMapping("/affecter-file-vehicule/{id-veh}/{id-file}")
+	@ResponseBody
+	public FileDB affecterfilevehicule(@PathVariable("id-veh") Long iduser,@PathVariable("id-file") Long idfile) {
+		return vehiculeserv.affcterfilevehicule(iduser, idfile);
+
+	}
 
 }

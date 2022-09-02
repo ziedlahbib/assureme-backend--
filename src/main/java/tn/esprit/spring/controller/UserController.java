@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import tn.esprit.spring.entity.FileDB;
 import tn.esprit.spring.entity.User;
 import tn.esprit.spring.service.IUserservice;
 
@@ -63,6 +63,12 @@ public class UserController {
 	@ResponseBody
 	public User getbyusername(@PathVariable("username") String username) {
 		return userServ.findbyusername(username);
+
+	}
+	@PutMapping("/affecter-file-utilisateur/{id-user}/{id-file}")
+	@ResponseBody
+	public FileDB affecterutilisateur(@PathVariable("id-user") Long iduser,@PathVariable("id-file") Long idfile) {
+		return userServ.affcterfileauuser(iduser, idfile);
 
 	}
 

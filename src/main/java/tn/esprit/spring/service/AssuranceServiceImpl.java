@@ -93,9 +93,13 @@ public class AssuranceServiceImpl implements IAssuranceService {
 			s=s+42;
 		if(mpack.getSit_matrimoniale().equalsIgnoreCase("marié"))
 			s=s+42;
-		if(mpack.getConjointpermis().equalsIgnoreCase("yes"))
-			s=s+42;
-		if(mpack.getAgeconjpermis()<10)
+		if(mpack.getConjointpermis()==null)
+			s=s+0;
+		else if(mpack.getConjointpermis().equalsIgnoreCase("yes"))
+			s=s+42;/*
+		if(mpack.getAgeconjpermis()==null)
+			s=s+0;
+		else */if(mpack.getAgeconjpermis()<10)
 			s=s+42;
 		la= assuRepo.listassuranceparprixsup(s);
 		System.out.println("ss"+s);

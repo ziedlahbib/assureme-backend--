@@ -92,4 +92,8 @@ public class User implements Serializable {
 	@JsonManagedReference
 	private List<Vehicule> veh;
 	
+	@OneToMany(mappedBy="user")
+	@JsonManagedReference
+	private List<FileDB> files;
+	
 }

@@ -1,5 +1,6 @@
 package tn.esprit.spring.service;
 
+import tn.esprit.spring.entity.FileDB;
 import tn.esprit.spring.entity.Vehicule;
 import java.util.List;
 public interface IVehiculeService {
@@ -11,5 +12,7 @@ public interface IVehiculeService {
 	public List<Vehicule> affichvehiculeByIDuser(Long idUser);
 	public Vehicule affectervehauassu(Long idassu,Long idveh);
 	public Vehicule desaffectervehauassu(Long idveh);
+	public FileDB affcterfilevehicule(Long idvehicule,Long idfile);
+
 
 }
