@@ -28,13 +28,13 @@ public class AssuranceController {
 	IAssuranceService assuservice;
 	@PostMapping("/ajout-asssurance")
 	@ResponseBody
-	public void addUser(@RequestBody Assurance u) {
+	public void addassurance(@RequestBody Assurance u) {
 		assuservice.ajoutAssurance(u);
 
 	}
 	@PutMapping("/update-assurance/{id-assu}")
 	@ResponseBody
-	public void affecterutilisateur(@RequestBody Assurance u,@PathVariable("id-assu") Long idassu) {
+	public void updateassurance(@RequestBody Assurance u,@PathVariable("id-assu") Long idassu) {
 		assuservice.updateAssurance(u, idassu);
 
 	}
