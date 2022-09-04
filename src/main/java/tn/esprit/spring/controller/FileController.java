@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -54,6 +55,9 @@ public class FileController {
     }
   }
   @PostMapping("/uploadf")
+ 
+  
+  //@RequestMapping(value = "/uploadf" , method = RequestMethod.POST, consumes = { "multipart/form-data" })
   public Long uploadFilef(@RequestPart("file") MultipartFile file) throws IOException {
   
       return storageService.store1(file);

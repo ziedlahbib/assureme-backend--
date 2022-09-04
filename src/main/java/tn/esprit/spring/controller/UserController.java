@@ -67,7 +67,7 @@ public class UserController {
 	}
 	@PutMapping("/affecter-file-utilisateur/{id-user}/{id-file}")
 	@ResponseBody
-	public FileDB affecterutilisateur(@PathVariable("id-user") Long iduser,@PathVariable("id-file") Long idfile) {
+	public User affecterutilisateur(@PathVariable("id-user") Long iduser,@PathVariable("id-file") Long idfile) {
 		return userServ.affcterfileauuser(iduser, idfile);
 
 	}

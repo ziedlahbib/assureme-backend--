@@ -64,13 +64,13 @@ public class UserServiceImpl implements IUserservice {
 	}
 
 	@Override
-	public FileDB affcterfileauuser(Long iduser,Long idfile) {
+	public User affcterfileauuser(Long iduser,Long idfile) {
 		// TODO Auto-generated method stub
 		User u = userRepo.findById(iduser).orElse(null);
 		FileDB f = fileRepo.findById(idfile).orElse(null);
 		f.setUser(u);
 		fileRepo.save(f);
-		return fileRepo.save(f);
+		return u;
 	}
 
 }

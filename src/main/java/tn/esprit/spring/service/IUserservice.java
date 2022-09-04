@@ -14,6 +14,6 @@ public interface IUserservice {
 	public User affichDetailUser(Long idUser);
 	public List<User> affichUser();
 	public User findbyusername(String username);
-	public FileDB affcterfileauuser(Long iduser,Long idfile);
+	public User affcterfileauuser(Long iduser,Long idfile);
 
 }
