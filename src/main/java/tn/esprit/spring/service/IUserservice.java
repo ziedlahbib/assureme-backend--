@@ -8,7 +8,7 @@ import tn.esprit.spring.entity.FileDB;
 import tn.esprit.spring.entity.User;
 
 public interface IUserservice {
-	public void inscription(User user);
+	public User inscription(User user);
 	public User updateUser(User user, Long idUser);
 	public void deleteUser(Long idUser);
 	public User affichDetailUser(Long idUser);

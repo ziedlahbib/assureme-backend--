@@ -49,7 +49,7 @@ public class PackPersonalise implements Serializable {
 	private String garentie_incendie;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="pack")
-	@JsonIgnore
+//	@JsonIgnore
 	private List<Vehicule> veh;
 
 }

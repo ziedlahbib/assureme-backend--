@@ -30,15 +30,15 @@ public class UserController {
 //	MyUserDetailsService userdetailservice;
 	@PostMapping("/inscription")
 	@ResponseBody
-	public void addUser(@RequestBody User u) {
-		userServ.inscription(u);
+	public User addUser(@RequestBody User u) {
+		return userServ.inscription(u);
 
 	}
 	
 
 	@PutMapping("/update-utilisateur/{id-user}")
 	@ResponseBody
-	public User affecterutilisateur(@RequestBody User u,@PathVariable("id-user") Long iduser) {
+	public User upadeteutilisateur(@RequestBody User u,@PathVariable("id-user") Long iduser) {
 		return userServ.updateUser(u, iduser);
 
 	}
@@ -67,7 +67,7 @@ public class UserController {
 	}
 	@PutMapping("/affecter-file-utilisateur/{id-user}/{id-file}")
 	@ResponseBody
-	public User affecterutilisateur(@PathVariable("id-user") Long iduser,@PathVariable("id-file") Long idfile) {
+	public User affecterfileutilisateur(@PathVariable("id-user") Long iduser,@PathVariable("id-file") Long idfile) {
 		return userServ.affcterfileauuser(iduser, idfile);
 
 	}

@@ -13,9 +13,9 @@ public class PackServiceImpl implements IPackService {
 	PackPersonaliseRepository packpersRepo;
 
 	@Override
-	public void ajoutPack(PackPersonalise pack) {
+	public PackPersonalise ajoutPack(PackPersonalise pack) {
 		// TODO Auto-generated method stub
-		packpersRepo.save(pack);
+		return packpersRepo.save(pack);
 	}
 
 	@Override

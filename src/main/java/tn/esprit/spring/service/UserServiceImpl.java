@@ -17,8 +17,8 @@ public class UserServiceImpl implements IUserservice {
 	FileDBRepository fileRepo;
 
 	@Override
-	public void inscription(User user) {
-		userRepo.save(user);
+	public User inscription(User user) {
+		 return userRepo.save(user);
 	}
 
 	@Override

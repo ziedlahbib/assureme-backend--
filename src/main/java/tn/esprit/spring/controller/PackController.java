@@ -25,8 +25,8 @@ public class PackController {
 	IPackService packservice;
 	@PostMapping("/ajout-pack")
 	@ResponseBody
-	public void addpack(@RequestBody PackPersonalise u) {
-		packservice.ajoutPack(u);
+	public PackPersonalise addpack(@RequestBody PackPersonalise u) {
+		return packservice.ajoutPack(u);
 
 	}
 	@PutMapping("/update-pack/{id-assu}")

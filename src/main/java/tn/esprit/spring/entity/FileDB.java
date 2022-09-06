@@ -53,11 +53,11 @@ public class FileDB implements Serializable {
   
   
   @ManyToOne
-  @JsonBackReference
+//  @JsonBackReference
   //@JsonIgnore
   private User user;
   @ManyToOne
-  @JsonBackReference
+//  @JsonBackReference
   //@JsonIgnore
   private Vehicule veh;
 

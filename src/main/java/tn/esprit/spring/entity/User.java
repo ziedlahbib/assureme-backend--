@@ -75,7 +75,7 @@ public class User implements Serializable {
 	
 	private String lastName;
 
-	@NonNull
+//	@NonNull
 //	@Size(min = 8, max = 60)
 	private String password;
 
@@ -89,11 +89,12 @@ public class User implements Serializable {
 	private String sit_matr;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
-	@JsonManagedReference
+//	@JsonManagedReference
 	private List<Vehicule> veh;
 	
 	@OneToMany(mappedBy="user")
-	@JsonManagedReference
+	@JsonIgnore
+//	@JsonManagedReference
 	private List<FileDB> files;
 	
 }

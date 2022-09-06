@@ -27,8 +27,8 @@ public class VehiculeController {
 	
 	@PostMapping("/ajout-vehicule/{userid}")
 	@ResponseBody
-	public void addVehicule(@RequestBody Vehicule u,@PathVariable("userid") Long userid) {
-		vehiculeserv.ajoutVehicule(u,userid);
+	public Vehicule addVehicule(@RequestBody Vehicule u,@PathVariable("userid") Long userid) {
+		return vehiculeserv.ajoutVehicule(u,userid);
 
 	}
 	@GetMapping("/get-vehcule/{id-veh}")
@@ -47,6 +47,12 @@ public class VehiculeController {
 	@ResponseBody
 	public Vehicule affectervehiculeauassurance(@PathVariable("id-assu") Long idassu,@PathVariable("id-veh") Long idveh) {
 		return vehiculeserv.affectervehauassu(idassu, idveh);
+
+	}
+	@PutMapping("/affecter-vehicule-pack/{id-assu}/{id-veh}")
+	@ResponseBody
+	public Vehicule affectervehiculeaupack(@PathVariable("id-assu") Long idassu,@PathVariable("id-veh") Long idveh) {
+		return vehiculeserv.affectervehaupack(idassu, idveh);
 
 	}
 	@PutMapping("/desaaffecter-vehicule-assurance/{id-veh}")

@@ -64,15 +64,15 @@ public class Vehicule implements Serializable {
 	private Puissance puissance;
 	private String etat_assu;
 	@ManyToOne
-	@JsonBackReference
+//	@JsonBackReference
 	private User user;
 	@ManyToOne
-	@JsonIgnore
+//	@JsonIgnore
 	private Assurance assu;
 	@ManyToOne
-	@JsonIgnore
+//	@JsonIgnore
 	private PackPersonalise pack;
 	@OneToMany(mappedBy="veh")
-	@JsonManagedReference
+//	@JsonManagedReference
 	private List<FileDB> files;
 }

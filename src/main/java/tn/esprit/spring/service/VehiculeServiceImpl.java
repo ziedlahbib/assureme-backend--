@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entity.Assurance;
 import tn.esprit.spring.entity.FileDB;
+import tn.esprit.spring.entity.PackPersonalise;
 import tn.esprit.spring.entity.User;
 import tn.esprit.spring.entity.Vehicule;
 import tn.esprit.spring.repository.AssuranceRepsitory;
 import tn.esprit.spring.repository.FileDBRepository;
+import tn.esprit.spring.repository.PackPersonaliseRepository;
 import tn.esprit.spring.repository.UserRepository;
 import tn.esprit.spring.repository.VehiculeRepository;
 
@@ -25,13 +27,15 @@ public class VehiculeServiceImpl implements IVehiculeService {
 	AssuranceRepsitory assuRepo;
 	@Autowired
 	FileDBRepository fileRepo;
+	@Autowired
+	PackPersonaliseRepository packRepo;
 	@Override
-	public void ajoutVehicule(Vehicule veh,Long idUser) {
+	public Vehicule ajoutVehicule(Vehicule veh,Long idUser) {
 		// TODO Auto-generated method stub
 		User u =userRepo.getById(idUser);
 		veh.setUser(u);
 		veh.setEtat_assu("null");
-		vehRepo.save(veh);
+		return vehRepo.save(veh);
 	}
 
 	@Override
@@ -97,8 +101,16 @@ public class VehiculeServiceImpl implements IVehiculeService {
 		Vehicule u = vehRepo.findById(idveh).orElse(null);
 		FileDB f = fileRepo.findById(idfile).orElse(null);
 		f.setVeh(u);
-		fileRepo.save(f);
 		return fileRepo.save(f);
+	}
+
+	@Override
+	public Vehicule affectervehaupack(Long idassu, Long idveh) {
+		Vehicule v=vehRepo.findById(idveh).orElse(null);
+		PackPersonalise p =packRepo.findById(idassu).orElse(null);
+		v.setPack(p);
+		v.setEtat_assu("inscrit");
+		return vehRepo.save(v);
 	}
 
 }
