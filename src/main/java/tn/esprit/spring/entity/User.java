@@ -89,12 +89,11 @@ public class User implements Serializable {
 	private String sit_matr;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="user")
-//	@JsonManagedReference
+	@JsonIgnore
 	private List<Vehicule> veh;
 	
-	@OneToMany(mappedBy="user")
+	@ManyToMany(mappedBy="user")
 	@JsonIgnore
-//	@JsonManagedReference
 	private List<FileDB> files;
 	
 }

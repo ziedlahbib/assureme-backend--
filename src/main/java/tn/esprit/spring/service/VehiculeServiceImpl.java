@@ -100,8 +100,9 @@ public class VehiculeServiceImpl implements IVehiculeService {
 		// TODO Auto-generated method stub
 		Vehicule u = vehRepo.findById(idveh).orElse(null);
 		FileDB f = fileRepo.findById(idfile).orElse(null);
-		f.setVeh(u);
-		return fileRepo.save(f);
+		u.getFiles().add(f);
+		vehRepo.save(u);
+		return f;
 	}
 
 	@Override
