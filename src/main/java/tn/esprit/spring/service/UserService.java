@@ -29,5 +29,5 @@ public User saveUser(User user) {
 
 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 user.setActive(true);
-user.setRole("Client");
+user.setRole("SUPERADMIN");
 return userRepository.save(user); }}
